@@ -9,9 +9,9 @@ public class Discount {
 	private Integer maxItems;
 	
 	public Discount(Product product, BigDecimal discount, Integer maxItems) {
-		this.product = product;
-		this.discount = discount;
-		this.maxItems = maxItems;		
+		setProduct(product);
+		setDiscount(discount);
+		setMaxItems(maxItems);		
 	}	
 
 	public Product getProduct() {
@@ -28,5 +28,8 @@ public class Discount {
 	}
 	public Integer getMaxItems() {
 		return maxItems;
+	}
+	public void setMaxItems(Integer maxItems) {
+		this.maxItems = maxItems;
 	}
 }

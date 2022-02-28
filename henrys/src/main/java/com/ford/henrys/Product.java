@@ -8,8 +8,8 @@ public class Product {
 	private Unit unit;
 	
 	public Product(String name, Unit unit) {
-		this.name = name;
-		this.unit = unit;
+		setName(name);
+		setUnit(unit);
 	}
 	public String getName() {
 		return name;
@@ -40,7 +40,7 @@ public class Product {
 	}
 	@Override
 	public String toString() {
-		return "Product [name=" + name + ", unit=" + unit + "]";
+		return "Product [name=" + getName() + ", unit=" + getUnit() + "]";
 	}
 	
 }

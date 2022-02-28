@@ -19,10 +19,10 @@ public class DiscountCriteria {
 			LocalDate validFrom, 
 			LocalDate validTo) {
 		
-		this.product = product;
-		this.minimumQuantity = minimumQuantity;
-		this.validFrom = validFrom;
-		this.validTo = validTo;
+		setProduct(product);
+		setMinimumQuantity(minimumQuantity);
+		setValidFrom(validFrom);
+		setValidTo(validTo);
 		
 	}
 	public Product getProduct() {

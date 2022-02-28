@@ -8,8 +8,8 @@ public class StockItem {
 	private BigDecimal cost;
 	
 	public StockItem(Product product, BigDecimal cost) {
-		this.product = product;
-		this.cost = cost;
+		setProduct(product);
+		setCost(cost);
 	}
 	
 	public Product getProduct() {
