@@ -76,6 +76,7 @@ public class Application implements CommandLineRunner {
 	    		if (command.compareToIgnoreCase("check") == 0) {
 	    			TillReceipt receipt = till.checkout(basket);
 	    			System.out.println(receipt.toString());
+	    			basket.empty();
 	    		}
 	    		else {
 	    			StringTokenizer tokenizer = new StringTokenizer(command, ":");
