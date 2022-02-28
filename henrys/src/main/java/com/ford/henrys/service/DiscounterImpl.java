@@ -26,7 +26,7 @@ public class DiscounterImpl implements Discounter {
 		getRules().put(rule.getCriteria().getProduct().getName(), rule);
 	}
 	
-	public HashMap<String, DiscountRule> getRules() {
+	private HashMap<String, DiscountRule> getRules() {
 		if (null == rules) {
 			rules = rulesLoader.load();
 		}
