@@ -11,7 +11,6 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,13 +19,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.ford.henrys.Basket;
-import com.ford.henrys.BasketItem;
-import com.ford.henrys.StockItem;
 import com.ford.henrys.TillReceiptItem;
 import com.ford.henrys.service.Discounter;
 import com.ford.henrys.service.InitialProducts;
 import com.ford.henrys.service.PriceCalculator;
-import com.ford.henrys.service.PriceCalculatorImpl;
 
 @ActiveProfiles("test")
 @RunWith(SpringJUnit4ClassRunner.class)
