@@ -67,7 +67,7 @@ public class DiscounterTest implements InitialProducts {
 		Discount discount = discounterService.discount(item);
 		assertTrue("Discount found", null != discount);	
 		assertEquals("Apples discount", APPLES, discount.getProduct());
-		assertEquals("Discount value", new BigDecimal(0.1), discount.getDiscount());
+		assertEquals("Discount value", BigDecimal.valueOf(0.1), discount.getDiscount());
 		assertEquals("Not limited", null, discount.getMaxItems());
 	}
 	@Test
@@ -79,7 +79,7 @@ public class DiscounterTest implements InitialProducts {
 		Discount discount = discounterService.discount(item);
 		assertTrue("Discount found", null != discount);	
 		assertEquals("Bread discount", BREAD, discount.getProduct());
-		assertEquals("Discount value", new BigDecimal(0.5), discount.getDiscount());
+		assertEquals("Discount value", BigDecimal.valueOf(0.5), discount.getDiscount());
 		assertEquals("Limited to one item", Integer.valueOf(1), discount.getMaxItems());
 
 	}

@@ -49,7 +49,7 @@ public class TillTest implements InitialProducts {
 		// Expected outputs
 		List<TillReceiptItem> items = new ArrayList<>();
 		TillReceiptItem soups = new TillReceiptItem(
-				SOUP, 2, new BigDecimal(1.30), new BigDecimal(0.00));
+				SOUP, 2, BigDecimal.valueOf(1.30), BigDecimal.valueOf(0.00));
 		items.add(soups);
 		
 		when(priceCalculator.calculateCost(Mockito.any())).thenReturn(items);
@@ -57,7 +57,7 @@ public class TillTest implements InitialProducts {
 		TillReceipt receipt = tillService.checkout(basket);
 		
 		assertNotNull("Receipt returned", receipt);
-		assertEquals("Gross price", new BigDecimal(1.30), receipt.getTotal());
+		assertEquals("Gross price", BigDecimal.valueOf(1.30), receipt.getTotal());
 		
 	}
 	@Test
@@ -73,9 +73,9 @@ public class TillTest implements InitialProducts {
 		// Expected outputs
 		List<TillReceiptItem> items = new ArrayList<>();
 		TillReceiptItem soups = new TillReceiptItem(
-				SOUP, 2, new BigDecimal(1.30), new BigDecimal(0.00));
+				SOUP, 2, BigDecimal.valueOf(1.30), BigDecimal.valueOf(0.00));
 		TillReceiptItem bread = new TillReceiptItem(
-				BREAD, 1, new BigDecimal(0.80), new BigDecimal(0.40));
+				BREAD, 1, BigDecimal.valueOf(0.80), BigDecimal.valueOf(0.40));
 		items.add(soups);
 		items.add(bread);
 		
@@ -85,7 +85,7 @@ public class TillTest implements InitialProducts {
 		
 		assertNotNull("Receipt returned", receipt);
 		assertEquals("Gross price", 
-				formatValue(new BigDecimal(1.70)), 
+				formatValue(BigDecimal.valueOf(1.70)), 
 				formatValue(receipt.getTotal()));		
 	}
 	

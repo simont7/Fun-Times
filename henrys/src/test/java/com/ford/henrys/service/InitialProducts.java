@@ -17,13 +17,13 @@ public interface InitialProducts {
 	Product MILK = new Product("Milk", Unit.BOTTLE);
 	Product APPLES = new Product("Apples", Unit.SINGLE);
 	
-	StockItem SOUP_ITEM = new StockItem(SOUP, new BigDecimal(0.65));
-	StockItem BREAD_ITEM = new StockItem(BREAD, new BigDecimal(0.8));
-	StockItem APPLES_ITEM = new StockItem(APPLES, new BigDecimal(0.1));
-	StockItem MILK_ITEM = new StockItem(MILK, new BigDecimal(1.3));
+	StockItem SOUP_ITEM = new StockItem(SOUP, BigDecimal.valueOf(0.65));
+	StockItem BREAD_ITEM = new StockItem(BREAD, BigDecimal.valueOf(0.8));
+	StockItem APPLES_ITEM = new StockItem(APPLES, BigDecimal.valueOf(0.1));
+	StockItem MILK_ITEM = new StockItem(MILK, BigDecimal.valueOf(1.3));
 	
-	Discount BREAD_DISCOUNT = new Discount(BREAD, new BigDecimal(0.5), 1);
-	Discount APPLES_DISCOUNT = new Discount(APPLES, new BigDecimal(0.1), null);
+	Discount BREAD_DISCOUNT = new Discount(BREAD, BigDecimal.valueOf(0.5), 1);
+	Discount APPLES_DISCOUNT = new Discount(APPLES, BigDecimal.valueOf(0.1), null);
 
 	DiscountCriteria SOUP_OFFER_CRITERIA = 
 			new DiscountCriteria(
@@ -39,7 +39,7 @@ public interface InitialProducts {
 					LocalDate.now().plusMonths(2));
 	
 	DiscountRule SOUP_OFFER = 
-			new DiscountRule(SOUP_OFFER_CRITERIA, BREAD, new BigDecimal(0.5), 1);
+			new DiscountRule(SOUP_OFFER_CRITERIA, BREAD, BigDecimal.valueOf(0.5), 1);
 	DiscountRule APPLES_OFFER =
-			new DiscountRule(APPLES_CRITERIA, APPLES, new BigDecimal(0.1), null);
+			new DiscountRule(APPLES_CRITERIA, APPLES, BigDecimal.valueOf(0.1), null);
 }

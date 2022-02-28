@@ -34,9 +34,9 @@ public class DiscountRulesLoaderImpl implements DiscountRulesLoader {
 					LocalDate.now().plusMonths(2));
 	
 	private static final DiscountRule SOUP_OFFER = 
-			new DiscountRule(SOUP_OFFER_CRITERIA, BREAD, new BigDecimal(0.5), 1);
+			new DiscountRule(SOUP_OFFER_CRITERIA, BREAD, BigDecimal.valueOf(0.5), 1);
 	private static final DiscountRule APPLES_OFFER =
-			new DiscountRule(APPLES_CRITERIA, APPLES, new BigDecimal(0.1), null);
+			new DiscountRule(APPLES_CRITERIA, APPLES, BigDecimal.valueOf(0.1), null);
 
 	@Override
 	public HashMap<String, DiscountRule> load() {

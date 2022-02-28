@@ -51,7 +51,7 @@ public class TillTest implements InitialProducts {
 		}			
 
 		assertEquals("Expected total price", 
-				formatValue(new BigDecimal(3.15)),
+				formatValue(BigDecimal.valueOf(3.15)),
 				receipt.getTotal());
 	}
 	
@@ -75,7 +75,7 @@ public class TillTest implements InitialProducts {
 		}	
 		
 		assertEquals("Expected total price ", 
-				formatValue(new BigDecimal(1.90)),
+				formatValue(BigDecimal.valueOf(1.90)),
 				receipt.getTotal());
 	}
 	
@@ -101,7 +101,7 @@ public class TillTest implements InitialProducts {
 		}			
 		
 		assertEquals("Expected total price", 
-				formatValue(new BigDecimal(1.84)),
+				formatValue(BigDecimal.valueOf(1.84)),
 				formatValue(receipt.getTotal()));
 	}
 	
@@ -126,7 +126,7 @@ public class TillTest implements InitialProducts {
 				"Gross Price - " + item.getGrossPrice());
 		}		
 		assertEquals("Expected total price ", 
-				formatValue(new BigDecimal(1.97)),
+				formatValue(BigDecimal.valueOf(1.97)),
 				formatValue(receipt.getTotal()));
 		
 	}

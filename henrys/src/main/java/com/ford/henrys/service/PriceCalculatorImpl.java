@@ -59,18 +59,15 @@ public class PriceCalculatorImpl implements PriceCalculator {
 				BigDecimal discountedValue = discount.getDiscount().multiply(
 						item.getStockItem().getCost().multiply(
 								new BigDecimal(discount.getMaxItems()))); 
-											
-				discountValue = discountedValue;
-				
+				BigDecimal nonDiscountedValue = new BigDecimal(0);
 				if (item.getQuantity() > discount.getMaxItems()) {
 					int itemsNotDiscounted = item.getQuantity() - discount.getMaxItems();
 			
-					BigDecimal nonDiscountedValue = 
+					nonDiscountedValue.add(
 							formatValue(item.getStockItem().getCost().multiply(
-							new BigDecimal(itemsNotDiscounted)));
-					
-					discountValue.add(nonDiscountedValue);
+							new BigDecimal(itemsNotDiscounted))));
 				}
+				discountValue = discountedValue.add(nonDiscountedValue);
 			}
 			else {
 				discountValue = 

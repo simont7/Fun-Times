@@ -54,7 +54,7 @@ public class PriceCalculatorTest implements InitialProducts {
 		assertEquals("Two items", 2, items.size());
 		
 		BigDecimal totalPrice = items.get(0).getToPay().add(items.get(1).getToPay());
-		assertEquals("Total price ", formatValue(new BigDecimal(1.70)), totalPrice);
+		assertEquals("Total price ", formatValue(BigDecimal.valueOf(1.70)), totalPrice);
 		
 	}
 	
@@ -76,7 +76,7 @@ public class PriceCalculatorTest implements InitialProducts {
 		assertEquals("Two items", 2, items.size());
 		
 		BigDecimal totalPrice = items.get(0).getToPay().add(items.get(1).getToPay());
-		assertEquals("Total price ", formatValue(new BigDecimal(3.30)), totalPrice);
+		assertEquals("Total price ", formatValue(BigDecimal.valueOf(3.30)), totalPrice);
 		
 	}
 	@Test
@@ -94,7 +94,7 @@ public class PriceCalculatorTest implements InitialProducts {
 		assertNotNull("TillReciptItems null", items);
 		assertEquals("One items", 1, items.size());
 		BigDecimal totalPrice = items.get(0).getToPay();
-		assertEquals("Total price ", formatValue(new BigDecimal(0.18)), totalPrice);
+		assertEquals("Total price ", formatValue(BigDecimal.valueOf(0.18)), totalPrice);
 	}
 	
 	@Test
@@ -110,7 +110,7 @@ public class PriceCalculatorTest implements InitialProducts {
 		assertNotNull("TillReciptItems null", items);
 		assertEquals("One items", 1, items.size());
 		BigDecimal totalPrice = items.get(0).getToPay();
-		assertEquals("Total price ", formatValue(new BigDecimal(0.20)), totalPrice);
+		assertEquals("Total price ", formatValue(BigDecimal.valueOf(0.20)), totalPrice);
 	}
 	@Test
 	public void test1Apple1Milk1Soup1Bread() {
@@ -131,7 +131,7 @@ public class PriceCalculatorTest implements InitialProducts {
 				                items.get(1).getToPay().add(
 				                items.get(2).getToPay().add(
 				                items.get(3).getToPay())));
-		assertEquals("Total price ", formatValue(new BigDecimal(2.85)), totalPrice);
+		assertEquals("Total price ", formatValue(BigDecimal.valueOf(2.85)), totalPrice);
 		
 	}
 	

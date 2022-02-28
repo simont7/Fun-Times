@@ -42,7 +42,7 @@ public class PriceCalculatorTest implements InitialProducts{
 		
 		assertEquals("One receipt item", items.size(), 1);
 		assertEquals("Total price for soup",
-				formatValue(new BigDecimal(1.30)),
+				formatValue(BigDecimal.valueOf(1.30)),
 				items.get(0).getGrossPrice());
 
 		for (TillReceiptItem item : items) {
@@ -65,12 +65,12 @@ public class PriceCalculatorTest implements InitialProducts{
 		
 		assertEquals("Two receipt items", items.size(), 2);
 		assertEquals("Total price for 2 soup and a loaf",
-				formatValue(new BigDecimal(2.10)),
+				formatValue(BigDecimal.valueOf(2.10)),
 				items.get(0).getGrossPrice().add(items.get(1).getGrossPrice()));
 		
 		BigDecimal discountTotal = items.get(0).getDiscount().add(items.get(1).getDiscount());
 		assertEquals("Discount for loaf",
-				formatValue(new BigDecimal(0.40), 2),
+				formatValue(BigDecimal.valueOf(0.40), 2),
 				discountTotal);
 		
 		for (TillReceiptItem item : items) {
@@ -96,12 +96,12 @@ public class PriceCalculatorTest implements InitialProducts{
 		
 		// No discount
 		assertEquals("Total price for 6 apples and a bottle of milk",
-				formatValue(new BigDecimal(1.90)),
+				formatValue(BigDecimal.valueOf(1.90)),
 				items.get(0).getGrossPrice().add(items.get(1).getGrossPrice()));
 		
 		BigDecimal discountTotal = items.get(0).getDiscount().add(items.get(1).getDiscount());
 		assertEquals("Discount for loaf",
-				formatValue(new BigDecimal(0.00)),
+				formatValue(BigDecimal.valueOf(0.00)),
 				discountTotal);
 		
 		for (TillReceiptItem item : items) {
@@ -128,17 +128,17 @@ public class PriceCalculatorTest implements InitialProducts{
 
 		// Discount of 10% for Apples
 		assertEquals("Total price for 6 apples and a bottle of milk",
-				formatValue(new BigDecimal(1.90)),
+				formatValue(BigDecimal.valueOf(1.90)),
 				formatValue(items.get(0).getGrossPrice().add(items.get(1).getGrossPrice())));
 		
 		BigDecimal discountTotal = items.get(0).getDiscount().add(items.get(1).getDiscount());
 		assertEquals("Discount for apples",
-				formatValue(new BigDecimal(0.06)),
+				formatValue(BigDecimal.valueOf(0.06)),
 				formatValue(discountTotal));
 		
 		BigDecimal priceToPay = items.get(0).getToPay().add(items.get(1).getToPay());
 		assertEquals("Price to pay", 
-				formatValue(new BigDecimal(1.84)),
+				formatValue(BigDecimal.valueOf(1.84)),
 				formatValue(priceToPay));		
 		
 		for (TillReceiptItem item : items) {
@@ -164,7 +164,7 @@ public class PriceCalculatorTest implements InitialProducts{
 		
 		assertEquals("Two receipt items", items.size(), 2);
 		assertEquals("Total discount", 
-				formatValue(new BigDecimal(0.4),2),
+				formatValue(BigDecimal.valueOf(0.4),2),
 				items.get(0).getDiscount().add(items.get(1).getDiscount()));
 
 	}
