@@ -9,6 +9,19 @@ public class TillReceiptItem {
 	private BigDecimal grossPrice;
 	private BigDecimal discount;
 	
+	public TillReceiptItem () {}
+	
+	public TillReceiptItem(
+			Product product, 
+			int quantity, 
+			BigDecimal grossPrice,
+			BigDecimal discount) {
+		this.product = product;
+		this.quantity = quantity;
+		this.grossPrice = grossPrice;
+		this.discount = discount;
+	}
+	
 	public Product getProduct() {
 		return product;
 	}
