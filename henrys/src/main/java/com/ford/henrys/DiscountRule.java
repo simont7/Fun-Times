@@ -13,7 +13,6 @@ public class DiscountRule {
 			BigDecimal discount,
 			Integer targetQuantity) {
 		this.criteria = criteria;
-		Discount test = new Discount(targetProduct, discount, targetQuantity);
 		this.targetDiscount = new Discount(targetProduct, discount, targetQuantity);
 	}
 	

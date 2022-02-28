@@ -2,8 +2,6 @@ package com.ford.henrys;
 
 import static java.lang.System.exit;
 
-import java.util.Map;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
