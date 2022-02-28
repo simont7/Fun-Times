@@ -20,12 +20,7 @@ public class DiscounterImpl implements Discounter {
 	public DiscounterImpl(DiscountRulesLoader rulresLoader) {
 		this.rulesLoader = rulresLoader;
 	}
-	
-	public void addRule(DiscountRule rule) {
 		
-		getRules().put(rule.getCriteria().getProduct().getName(), rule);
-	}
-	
 	private HashMap<String, DiscountRule> getRules() {
 		if (null == rules) {
 			rules = rulesLoader.load();
