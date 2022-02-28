@@ -17,8 +17,7 @@ public class PriceCalculatorUnitTestAppConfig {
 	
 	@Bean("priceCalculator") 
 	public PriceCalculator priceCalculator() {
-		return new PriceCalculatorImpl(discounter());
-		
+		return new PriceCalculatorImpl(discounter());		
 	}
 	
 	@Bean("mockDiscounter")
