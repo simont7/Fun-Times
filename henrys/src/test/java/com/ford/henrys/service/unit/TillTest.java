@@ -1,12 +1,14 @@
 package com.ford.henrys.service.unit;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +20,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.ford.henrys.Basket;
-import com.ford.henrys.BasketItem;
 import com.ford.henrys.TillReceipt;
 import com.ford.henrys.TillReceiptItem;
 import com.ford.henrys.service.InitialProducts;
@@ -29,6 +30,7 @@ import com.ford.henrys.service.Till;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes= {TillUnitTestAppConfig.class})
 public class TillTest implements InitialProducts {
+	private static final Logger LOGGER = Logger.getLogger("TillTest");
 	
 	@Autowired
 	@Qualifier("mockPriceCalculator")
@@ -57,8 +59,17 @@ public class TillTest implements InitialProducts {
 		TillReceipt receipt = tillService.checkout(basket);
 		
 		assertNotNull("Receipt returned", receipt);
-		assertEquals("Gross price", BigDecimal.valueOf(1.30), receipt.getTotal());
+		assertEquals("Gross price", 
+				formatValue(BigDecimal.valueOf(1.30)), 
+				formatValue(receipt.getTotal()));
 		
+		assertEquals("Price without discount", 
+				formatValue(BigDecimal.valueOf(1.30)), 
+				formatValue(receipt.getPrice()));
+		assertEquals("Discount value",
+				formatValue(BigDecimal.valueOf(0.00)),
+				formatValue(receipt.getDiscount()));
+		LOGGER.info(receipt.toString());
 	}
 	@Test
 	public void test2Soups1BreadToday() {
@@ -86,7 +97,14 @@ public class TillTest implements InitialProducts {
 		assertNotNull("Receipt returned", receipt);
 		assertEquals("Gross price", 
 				formatValue(BigDecimal.valueOf(1.70)), 
-				formatValue(receipt.getTotal()));		
+				formatValue(receipt.getTotal()));
+		assertEquals("Price without discount", 
+				formatValue(BigDecimal.valueOf(2.10)), 
+				formatValue(receipt.getPrice()));
+		assertEquals("Discount value",
+				formatValue(BigDecimal.valueOf(0.40)),
+				formatValue(receipt.getDiscount()));
+		LOGGER.info(receipt.toString());
 	}
 	
 	private BigDecimal formatValue(BigDecimal value) {

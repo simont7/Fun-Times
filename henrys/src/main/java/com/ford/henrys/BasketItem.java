@@ -23,9 +23,6 @@ public class BasketItem {
 	public StockItem getStockItem() {
 		return stockItem;
 	}
-	public void setStockItem(StockItem stockItem) {
-		this.stockItem = stockItem;
-	}
 	public int getQuantity() {
 		return quantity;
 	}
@@ -34,9 +31,6 @@ public class BasketItem {
 	}
 	public LocalDate getDateAdded() {
 		return dateAdded;
-	}
-	public void setDateAdded(LocalDate dateAdded) {
-		this.dateAdded = dateAdded;
 	}
 
 }
