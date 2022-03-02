@@ -6,12 +6,16 @@ import org.junit.Test;
 
 import com.ford.henrys.service.InitialProducts;
 
+/**
+ * BasketTest - Tests for Basket
+ * @author snjohnson
+ *
+ */
 public class BasketTest implements InitialProducts {
 	
 	
 	private Basket testSubject = new Basket();
 
-	
 	@Test
 	public void testBasketEmpty() {
 		assertTrue("Check basket is empty", testSubject.getContents().size() == 0);
