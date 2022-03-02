@@ -10,6 +10,9 @@ import java.util.HashMap;
  */
 public class Basket {
 	
+	/**
+	 * contents - basket contents
+	 */
     private HashMap<String, BasketItem> contents;
 	
 	public void addItem(StockItem stockItem, int quantity) {
