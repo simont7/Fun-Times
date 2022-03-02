@@ -3,14 +3,25 @@ package com.ford.henrys;
 import java.time.LocalDate;
 import java.util.HashMap;
 
+/**
+ * Basket - represents a shopping basket 
+ * @author snjohnson
+ *
+ */
 public class Basket {
 	
-	private HashMap<String, BasketItem> contents;
+    private HashMap<String, BasketItem> contents;
 	
 	public void addItem(StockItem stockItem, int quantity) {
 		addItem(stockItem, quantity, LocalDate.now());
 	}
 	
+	/**
+	 * addItem - Adds an item to the basket
+	 * @param stockItem
+	 * @param quantity
+	 * @param dateAdded
+	 */
 	public void addItem(StockItem stockItem, int quantity, LocalDate dateAdded) {
 		if (contents == null) {
 			contents = new HashMap<String, BasketItem>();
@@ -32,6 +43,11 @@ public class Basket {
 		return contents.get(name);
 	}
 	
+	/**
+	 * removeItem - Removes an item from the basket
+	 * @param stockItem
+	 * @param quantity
+	 */
 	public void removeItem(StockItem stockItem, int quantity) {
 		if (contents != null) {
 			String key = stockItem.getProduct().getName();
@@ -48,14 +64,15 @@ public class Basket {
 				}
 			}
 
-		}
-		
+		}	
 	}
 	
 	public void empty() {
 		contents = null;
 	}
-	
+	/*
+	 * getContents - returns the contents of the basket
+	 */
 	public HashMap<String, BasketItem> getContents() {
 		if (null == contents) {
 			contents = new HashMap<>();
