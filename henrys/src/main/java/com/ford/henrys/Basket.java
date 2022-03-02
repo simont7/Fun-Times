@@ -15,12 +15,17 @@ public class Basket {
 	 */
     private HashMap<String, BasketItem> contents;
 	
+    /**
+     * addItem - Adds an item for today
+     * @param stockItem
+     * @param quantity
+     */
 	public void addItem(StockItem stockItem, int quantity) {
 		addItem(stockItem, quantity, LocalDate.now());
 	}
 	
 	/**
-	 * addItem - Adds an item to the basket
+	 * addItem - Adds an item to the basket for the date specified
 	 * @param stockItem
 	 * @param quantity
 	 * @param dateAdded
