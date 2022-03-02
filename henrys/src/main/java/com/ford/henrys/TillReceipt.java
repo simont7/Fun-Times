@@ -3,11 +3,8 @@ package com.ford.henrys;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class TillReceipt {
-	
-	private static final Logger LOGGER = Logger.getLogger("TillReceipt");
 	
 	private List<TillReceiptItem> entries;
 	
