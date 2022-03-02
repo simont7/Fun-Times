@@ -34,6 +34,10 @@ public class DiscounterImpl implements Discounter {
 		DiscountRule rule = getRules().get(item.getStockItem().getProduct().getName());
 
 		if (null != rule && rule.applyDiscount(item)) {
+			
+			// Apply multiple discounts if needed
+			int maxItems = item.getQuantity()/rule.getCriteria().getMinimumQuantity();
+			rule.getTargetDiscount().setMaxItems(maxItems);
 			return rule.getTargetDiscount();
 		}
 		return null;

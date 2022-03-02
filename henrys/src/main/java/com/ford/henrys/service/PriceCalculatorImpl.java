@@ -54,20 +54,12 @@ public class PriceCalculatorImpl implements PriceCalculator {
 		
 		if (null != discount) {
 			if (null != discount && 
-				discount.getMaxItems() != null) {
+				discount.getMaxItems() != null &&
+				item.getQuantity() > discount.getMaxItems()) {
 				
-				BigDecimal discountedValue = discount.getDiscount().multiply(
+				discountValue = discount.getDiscount().multiply(
 						item.getStockItem().getCost().multiply(
 								new BigDecimal(discount.getMaxItems()))); 
-				BigDecimal nonDiscountedValue = new BigDecimal(0);
-				if (item.getQuantity() > discount.getMaxItems()) {
-					int itemsNotDiscounted = item.getQuantity() - discount.getMaxItems();
-			
-					nonDiscountedValue.add(
-							formatValue(item.getStockItem().getCost().multiply(
-							new BigDecimal(itemsNotDiscounted))));
-				}
-				discountValue = discountedValue.add(nonDiscountedValue);
 			}
 			else {
 				discountValue = 
@@ -83,6 +75,7 @@ public class PriceCalculatorImpl implements PriceCalculator {
 		ConcurrentHashMap<String, Discount> discounts = new ConcurrentHashMap<>();
 		for (BasketItem item : basket.getContents().values()) {
 			Discount discount = discounter.discount(item);
+			
 			if (null != discount) {
 				discounts.put(discount.getProduct().getName(), discount);
 			}

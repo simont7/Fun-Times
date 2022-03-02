@@ -53,7 +53,99 @@ public class TillTest implements InitialProducts {
 				formatValue(BigDecimal.valueOf(3.15)),
 				receipt.getTotal());
 	}
+	@Test
+	@Description("Price a basket containing: 4 tins of soup and 2 loaves of bread, bought today")
+	public void test4tinsSoup2LoavesBoughtToday() {
+		Basket basket = new Basket();
+		
+		assertTrue("Basket is empty", basket.getContents().size() == 0);
+		basket.addItem(SOUP_ITEM, 4);
+		basket.addItem(BREAD_ITEM, 2);
+		assertTrue("Two products in the basket", basket.getContents().size() == 2);
+		
+		TillReceipt receipt = tillService.checkout(basket);
+
+		for (TillReceiptItem item : receipt.getEntries()) {
+			LOGGER.info("Product " + item.getProduct().getName() + " : " +
+				"Quantity - " + item.getQuantity() + " : " +
+				"Discount - " + item.getDiscount() + " : " +
+				"Gross Price - " + item.getGrossPrice());
+		}			
+
+		assertEquals("Expected total price", 
+				formatValue(BigDecimal.valueOf(3.40)),
+				receipt.getTotal());
+	}
 	
+	@Test
+	@Description("Price a basket containing: 6 tins of soup and 2 loaves of bread, bought today")
+	public void test6tinsSoup2LoavesBoughtToday() {
+		Basket basket = new Basket();
+		
+		assertTrue("Basket is empty", basket.getContents().size() == 0);
+		basket.addItem(SOUP_ITEM, 6);
+		basket.addItem(BREAD_ITEM, 2);
+		assertTrue("Two products in the basket", basket.getContents().size() == 2);
+		
+		TillReceipt receipt = tillService.checkout(basket);
+
+		for (TillReceiptItem item : receipt.getEntries()) {
+			LOGGER.info("Product " + item.getProduct().getName() + " : " +
+				"Quantity - " + item.getQuantity() + " : " +
+				"Discount - " + item.getDiscount() + " : " +
+				"Gross Price - " + item.getGrossPrice());
+		}			
+
+		assertEquals("Expected total price", 
+				formatValue(BigDecimal.valueOf(4.70)),
+				receipt.getTotal());
+	}
+	@Test
+	@Description("Price a basket containing: 6 tins of soup and 3 loaves of bread, bought today")
+	public void test6tinsSoup3LoavesBoughtToday() {
+		Basket basket = new Basket();
+		
+		assertTrue("Basket is empty", basket.getContents().size() == 0);
+		basket.addItem(SOUP_ITEM, 6);
+		basket.addItem(BREAD_ITEM, 3);
+		assertTrue("Two products in the basket", basket.getContents().size() == 2);
+		
+		TillReceipt receipt = tillService.checkout(basket);
+
+		for (TillReceiptItem item : receipt.getEntries()) {
+			LOGGER.info("Product " + item.getProduct().getName() + " : " +
+				"Quantity - " + item.getQuantity() + " : " +
+				"Discount - " + item.getDiscount() + " : " +
+				"Gross Price - " + item.getGrossPrice());
+		}			
+
+		assertEquals("Expected total price", 
+				formatValue(BigDecimal.valueOf(5.10)),
+				receipt.getTotal());
+	}
+	@Test
+	@Description("Price a basket containing: 7 tins of soup and 3 loaves of bread, bought today")
+	public void test7tinsSoup3LoavesBoughtToday() {
+		Basket basket = new Basket();
+		
+		assertTrue("Basket is empty", basket.getContents().size() == 0);
+		basket.addItem(SOUP_ITEM, 7);
+		basket.addItem(BREAD_ITEM, 3);
+		assertTrue("Two products in the basket", basket.getContents().size() == 2);
+		
+		TillReceipt receipt = tillService.checkout(basket);
+
+		for (TillReceiptItem item : receipt.getEntries()) {
+			LOGGER.info("Product " + item.getProduct().getName() + " : " +
+				"Quantity - " + item.getQuantity() + " : " +
+				"Discount - " + item.getDiscount() + " : " +
+				"Gross Price - " + item.getGrossPrice());
+		}			
+
+		assertEquals("Expected total price", 
+				formatValue(BigDecimal.valueOf(5.75)),
+				receipt.getTotal());
+	}
 	@Test
 	@Description("Price a basket containing: 6 apples and a bottle of milk, bought today")
 	public void test6ApplesAndABottleOfMilkBoughtToday() {
